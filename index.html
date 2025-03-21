@@ -1,240 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Inicio</title>
-    <link rel="icon" type="image/png" href="favicon-96x96.png">
+    <title>💛 Flores Amarillas para Gaby 💛</title>
     <style>
         body {
-            min-height: 100vh;
-            margin: 0;
-            background: url(alumnos.jpg) no-repeat;
-            background-size: cover;
+            text-align: center;
+            background: linear-gradient(to right, #fff7d6, #ffcc00);
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #333;
-            background-color: #fff;
         }
-
-        head {
-            display: none;
+        h1 {
+            font-size: 2.5rem;
+            color: #d98200;
+            margin-top: 20px;
         }
-
-        #logo img {
-            width: 200px;
-            margin: 0.2em;
+        .container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-
-        img {
-            vertical-align: middle;
+        .flower {
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: relative;
+            display: inline-block;
+            animation: float 3s infinite ease-in-out alternate;
         }
-
-        img {
-            border: 0;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        img {
-            overflow-clip-margin: content-box;
-            overflow: clip;
-        }
-
-        #logo {
-            background-color: #C41919;
-            text-align: center;
-            margin-bottom: 1em;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        div {
-            display: block;
-            unicode-bidi: isolate;
-        }
-
-
-        #formulario,
-        #registro {
-            text-align: center;
-        }
-
-        #user,
-        #pass,
-        #boton {
-            /* border: none; */
-            /* border: 1px solid #aaa; */
-            font-size: 1.3em;
-        }
-
-        #user {
-            background: url(usuario.png) no-repeat left, linear-gradient(#fff, #eee);
-        }
-
-        #user,
-        #pass {
-            padding: 5px 0px 5px 35px;
-            line-height: 35px;
-            border-radius: 4px;
-            /* border: 1px solid red; */
-            border: none;
-        }
-
-        input,
-        label,
-        button {
-            font-family: 'Tahoma', sans-serif;
-        }
-
-        #pass {
-            background: url(contra.png) no-repeat left, linear-gradient(#fff, #eee);
-        }
-
-        #boton {
-            padding: 5px;
-            background: #C41919;
-            color: white;
-            line-height: 35px;
-            outline: none;
-            border: none;
-            width: 50px;
-            height: 50px;
+        .flower::before,
+        .flower::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
             border-radius: 50%;
         }
-
-        #recovery a {
-            color: #000;
+        .flower::before {
+            transform: rotate(45deg);
+            top: 0;
+            left: 0;
+        }
+        .flower::after {
+            transform: rotate(-45deg);
+            top: 0;
+            left: 0;
+        }
+        .stem {
+            width: 10px;
+            height: 60px;
+            background-color: green;
+            position: absolute;
+            bottom: -60px;
+            left: 35px;
+            border-radius: 5px;
+        }
+        .message {
+            font-size: 24px;
+            color: #d98200;
+            margin-top: 30px;
             font-weight: bold;
-            font-size: 1em;
-            text-decoration: none;
+            animation: fadeIn 3s ease-in-out;
         }
-
-
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-      
-
-        #pie {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, .7);
-            border-top: 2px solid red;
-            color: #ddd;
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: bold;
-            font-size: 11px;
-            text-align: center;
-            font-family: 'Tahoma', sans-serif;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #d98200;
+            color: white;
         }
 
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
         }
 
-        div {
-            display: block;
-            unicode-bidi: isolate;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
-        #pie a {
-            color: #ddd;
-            text-decoration: none;
-        }
-
-   
-
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        p {
-            margin: 0 0 10px;
-        }
-        .fa-paw:before {
-    content: "\f1b0";
-}
-.fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: var(--fa-display, inline-block);
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-rendering: auto;
-}
-.fa {
-    font-family: var(--fa-style-family, "Font Awesome 6 Free");
-    font-weight: var(--fa-style, 900);
-}
-@media (max-width: 768px) {
-    #user, #pass {
-        border: none;
-        box-sizing: border-box;
-        width: 40%;
-    }
-}
-@media (max-width: 768px) {
-    body {
-        background: url(logoResponsive.jpg) no-repeat;
-        background-size: cover;
-        background-position: 0px 50px;
-    }
-}
     </style>
 </head>
-
 <body>
-    <div id="app">
-        <div id="logo">
-            <img src="logo.png">
-        </div>
-        <div id="formulario">
-            <form id="formulario_inicio" action="Login/iniciarSesion" method="post">
 
-                <input type="text" name="_usuario_" placeholder="Usuario" id="user" required="">
-                <input type="password" name="_pass_" placeholder="Contraseña" id="pass" required="">
-
-                <a href="https://portal.uad.mx/">
-                    <button type="button" id="boton"><i class="fa fa-paw"></i></button>
-                </a>
-
-                <div id="recovery"><a href="RecoveryPass">Olvidé mi contraseña</a></div>
-
-        </div>
-        </form>
+    <h1>🌼 Flores Amarillas para Gaby 🌼</h1>
+    <div class="container">
+        <div class="flower"><div class="stem"></div></div>
+        <div class="flower"><div class="stem"></div></div>
+        <div class="flower"><div class="stem"></div></div>
+        <div class="flower"><div class="stem"></div></div>
     </div>
-    <div id="pie">
-        <p>Este sitio funciona mejor con:</p>
-        <img src="navegadores.png" width="200px">
-        <p><a href="http://www.uad.mx" target="_blank">www.uad.mx</a></p>
-
-        <!-- <p>Av. Universidad Autónoma de Durango No. 300</p>
-		<p>Fracc. Jardines de Durango, C.P. 34200</p>
-		<p>Durango, Dgo., Méx.</p>
-		<p><a href="http://www.uad.mx" target="_blank">www.uad.mx</a></p> -->
+    <div class="message">
+        💛 Te amo Gaby 💛<br>
+        No estés enojada conmigo, te amo 🥺
     </div>
-</body>
-
-</html>
+    <button onclick="makeFlow
